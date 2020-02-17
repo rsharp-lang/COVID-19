@@ -31,7 +31,8 @@ let month      = sapply(updateTime, d -> d$Month);
 let day        = sapply(updateTime, d -> d$Day);
 let dates = sprintf("%s-%s-%s", year, month, day) 
 :> unique 
-:> orderBy(key -> as.Date(key));
+:> as.Date
+:> orderBy(key -> key);
 
 print("We have date values:");
 print(dates);
@@ -58,7 +59,9 @@ let province.data as function(prov.group, name) {
     let day        = sapply(updateTime, d -> d$Day);
     let i = 0;
 
-    dates = sprintf("%s-%s-%s", year, month, day);
+    # get all of the dates of the data in current 
+    # province region
+    let dates = sprintf("%s-%s-%s", year, month, day);
 
     print(`Processing ${length(dates)} dates with ${length(prov.group)} records from '${name}'.`);
 
@@ -77,3 +80,20 @@ let result <- lapply(province, prov -> province.data(prov$group, prov$key));
 
 names(result) <- sapply(province, prov -> prov$key);
 str(result);
+
+# write formatted csv table file
+using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
+    let proviNames = names(result);
+    let row = dataframe::row("");
+    let sub = dataframe::row("date");
+
+    for(name in proviNames) {
+        row :> append.cells(["", name, ""]);
+        row :> append.cells(["confirmed", "cured", "dead"]);
+    }
+
+    file :> add(row);
+    file :> add(sub);
+
+    # for (day in )
+}
