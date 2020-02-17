@@ -80,7 +80,7 @@ let Iout = 2e-5;
 
 # 下面的几个参数表示传染病的状态的转换效率
 let Icure = 3e-3;
-let Scure = 3e-1;
+let Scure = 3;
 let gamma = 1e-3;
 
 let Kinetics_of_influenza_A_virus_infection_in_humans = [
@@ -109,7 +109,7 @@ let Kinetics_of_influenza_A_virus_infection_in_humans = [
 
 # 运行传染病模型
 Kinetics_of_influenza_A_virus_infection_in_humans
-:> deSolve(y0, a = 0, b = 7)
+:> deSolve(y0, a = 0, b = 100)
 :> as.data.frame 
 :> write.csv(file = "./Kinetics_of_influenza_A_virus_infection_in_humans.csv")
 ;
