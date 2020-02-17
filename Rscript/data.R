@@ -66,14 +66,14 @@ let province.data as function(prov.group, name) {
         i = i + 1; dates[i];
     });
 
-    # @stop;
+    # print(length(dates));
+    # print(i);
 
     prov  = lapply(prov, d -> day.data(d$group), names = d -> d$key);
     prov;
 }
 
-let result <- for(prov in province) %dopar% {
-    province.data(prov$group, prov$key);
-}
+let result <- lapply(province, prov -> province.data(prov$group, prov$key));
 
+names(result) <- sapply(province, prov -> prov$key);
 str(result);
