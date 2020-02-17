@@ -20,15 +20,16 @@ using table as open.csv("../data/COVID-19_delta.csv", encoding = "utf8") {
     }
 
     for(day in raw :> skip(2)) {
-        day <- day :> cells;
-        date <- day;
+        date      <- day;
+        day       <- day :> cells;
         yesterday <- yesterday :> cells;        
-        day <- day[2:length(day)];
+        day       <- day[2:length(day)];
         yesterday <- yesterday[2:length(day)];
-        d <- (as.numeric(day) - as.numeric(yesterday)) :> sapply(d -> (d > 0) ? d : 0);        
-        delta <- dataframe::row((date :> cells)[1]);
-        delta :> append.cells(d);
+        d         <- (as.numeric(day) - as.numeric(yesterday)) :> sapply(d -> (d > 0) ? d : 0);        
         yesterday <- date;
+        delta     <- dataframe::row((date :> cells)[1]);
+        
+        delta :> append.cells(d);
         table :> append.row(delta);
     }
 }
