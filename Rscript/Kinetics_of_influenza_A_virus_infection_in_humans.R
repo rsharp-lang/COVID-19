@@ -50,9 +50,9 @@ setwd(!script$dir);
 
 # 配置模型参数常量
 # 患病病人对健康人的传染效率
-let beta0  <- 8.8e-3;
+let beta0  <- 2;
 # 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
-let lambda0 <- 8.8e-7;
+let lambda0 <- 8.8e-17;
 # 病毒导致的疾病致死率
 let delta <- 2.6e-1;
 # 病毒抗体的失效的速率
@@ -75,7 +75,7 @@ let lambda = population -> lambda0 * (population / area);
 
 # 系统初始值
 let y0 = list(
-	T = 4e5, # 当前行政区域的总人口
+	T = 4e4, # 当前行政区域的总人口
 	C = 0,    # 初期没有人拥有抗体
 	S = 1,    # 最初只有一个潜伏期病人
 	I = 0,    # 最初没有患者
@@ -110,7 +110,8 @@ let Kinetics_of_influenza_A_virus_infection_in_humans = [
 	 - Cout   # 迁出拥有抗体的人口
 	 - rho * C,  # 抗体失效的人口
 
-	T ->  Tin        # 迁入当前区域的健康人数量	     
+	T ->  Tin        # 迁入当前区域的健康人数量	 
+	     + rho * C   # 拥有抗体的人体内的抗体失活转换为普通人    
 		 - beta(T + I) * T * I  # 被患病病人感染至潜伏期
 		 - lambda(T + S) * T * S # 被潜伏期病人感染至潜伏期
 		 - Tout,     # 健康人口迁出当前区域         
