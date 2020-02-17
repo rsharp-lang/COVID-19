@@ -101,7 +101,7 @@ let Icure = 3e-3;
 let Scure = 3;
 let gamma = 1e-3;
 
-let Kinetics_of_influenza_A_virus_infection_in_humans = [
+let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
 
 	C -> Icure * I               # 患病病人被治愈
          + Scure * S             # 潜伏期病人自愈
@@ -133,8 +133,8 @@ let Kinetics_of_influenza_A_virus_infection_in_humans = [
 ];
 
 # 运行传染病动力学模型
-Kinetics_of_influenza_A_virus_infection_in_humans
+Kinetics_of_SARS_CoV_2_virus_infection_in_humans
 :> deSolve(y0, a = 0, b = 100)
 :> as.data.frame 
-:> write.csv(file = "./Kinetics_of_influenza_A_virus_infection_in_humans.csv")
+:> write.csv(file = "./Kinetics_of_SARS-CoV-2_virus_infection_in_humans.csv")
 ;

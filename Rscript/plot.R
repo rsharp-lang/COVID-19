@@ -2,7 +2,7 @@ require(plot.charts);
 
 setwd(!script$dir);
 
-let result <- read.csv(file = "./Kinetics_of_influenza_A_virus_infection_in_humans.csv");
+let result <- read.csv(file = "./Kinetics_of_SARS-CoV-2_virus_infection_in_humans.csv");
 let time <- result[, 1] :> as.numeric;
 let kinetics as double; 
 let plot.kinetics_var as function(var) {
