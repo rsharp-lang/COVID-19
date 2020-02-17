@@ -103,33 +103,33 @@ let gamma = 1e-3;
 
 let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
 
-	C -> Icure * I               # 患病病人被治愈
+    C -> Icure * I               # 患病病人被治愈
          + Scure * S             # 潜伏期病人自愈
-	     + iota * T              # 接种抗体
-	     + Cin                   # 迁入拥有抗体的人口
-	     - Cout                  # 迁出拥有抗体的人口
+         + iota * T              # 接种抗体
+         + Cin                   # 迁入拥有抗体的人口
+         - Cout                  # 迁出拥有抗体的人口
 	     - rho * C,              # 抗体失效的人口
 
-	T -> Tin                     # 迁入当前区域的健康人数量	 
-	     + rho * C               # 拥有抗体的人体内的抗体失活转换为普通人    
-		 - beta(T + I) * T * I   # 被患病病人感染至潜伏期
-		 - lambda(T + S) * T * S # 被潜伏期病人感染至潜伏期
-		 - Tout,                 # 健康人口迁出当前区域         
+    T -> Tin                     # 迁入当前区域的健康人数量	 
+         + rho * C               # 拥有抗体的人体内的抗体失活转换为普通人    
+         - beta(T + I) * T * I   # 被患病病人感染至潜伏期
+         - lambda(T + S) * T * S # 被潜伏期病人感染至潜伏期
+         - Tout,                 # 健康人口迁出当前区域         
 	
-	S -> Sin                     # 迁入当前区域的潜伏期病人
-	     + lambda(T + S) * T * S # 健康人被潜伏期患者感染为潜伏期病人
-		 + beta(T + I) * T * I   # 健康人被患者感染为潜伏期病人
-		 - Sout                  # 潜伏期病人从当前区域迁出
-		 - gamma * S             # 潜伏期转换为患病人
-		 - Scure * S,            # 潜伏期自愈
+    S -> Sin                     # 迁入当前区域的潜伏期病人
+         + lambda(T + S) * T * S # 健康人被潜伏期患者感染为潜伏期病人
+         + beta(T + I) * T * I   # 健康人被患者感染为潜伏期病人
+         - Sout                  # 潜伏期病人从当前区域迁出
+         - gamma * S             # 潜伏期转换为患病人
+         - Scure * S,            # 潜伏期自愈
 
-	I -> gamma * S               # 潜伏期病人转换为患病人
-	     + Iin                   # 迁入当前区域的患病人
-		 - Iout                  # 从当前区域迁出的患病人
-		 - Icure * I             # 被治愈的病人
-		 - delta * I,            # 死亡的病人  
+    I -> gamma * S               # 潜伏期病人转换为患病人
+         + Iin                   # 迁入当前区域的患病人
+         - Iout                  # 从当前区域迁出的患病人
+         - Icure * I             # 被治愈的病人
+         - delta * I,            # 死亡的病人  
     
-	D -> delta * I               # 死亡的病人，delta可以近似看作为病死率    
+    D -> delta * I               # 死亡的病人，delta可以近似看作为病死率    
 ];
 
 # 运行传染病动力学模型
