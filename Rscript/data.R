@@ -89,11 +89,13 @@ using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
     let proviNames = names(result);
     let row = dataframe::row("");
     let sub = dataframe::row("date");
-    let yesterday as string = ["0", "0", "0"];
+    let yesterday = list();
 
     for(name in proviNames) {
         row :> append.cells(["", name, ""]);
         sub :> append.cells(["confirmed", "cured", "dead"]);
+
+        yesterday[[name]] <- ["0", "0", "0"];
     }
 
     file :> append.row(row);
@@ -111,15 +113,15 @@ using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
             dayData <- proviData[[day]];
 
             if (is.empty(dayData)) {
-                row :> append.cells(yesterday);
+                row :> append.cells(yesterday[[name]]);
             } else {
-                yesterday <- [
+                yesterday[[name]] <- [
                     dayData$province_confirmedCount, 
                     dayData$province_curedCount, 
                     dayData$province_deadCount
                 ];
-                
-                row :> append.cells(yesterday);
+
+                row :> append.cells(yesterday[[name]]);
             }
         }
 
