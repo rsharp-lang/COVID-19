@@ -7,9 +7,30 @@ setwd(!script$dir);
 
 let raw = read.csv("../data/DXYArea.csv", encoding = "utf8");
 
+raw[, "updateTime"] <- as.Date(raw[, "updateTime"]);
+
 print("Peeks of the raw data table:");
+print("All of the data fields:");
 print(colnames(raw));
+print("Number of data records:");
+print(nrow(raw));
 
-let prov = raw :> as.list(byrow = TRUE);
+let province = raw :> as.list(byrow = TRUE) :> groupBy(prov -> prov$provinceEnglishName);
 
-str(prov);
+print("raw data contains of province data:");
+str(lapply(province, prov -> length(prov$group), names = prov -> prov$key));
+
+let dateKey as function(d) {
+    `${d$Year}-${d$Month}-${d$Day}`;
+}
+let getDateKeys as function(prov) {
+    prov
+    :> projectAs(d -> d$updateTime)
+    :> groupBy(d -> dateKey(as.object(d)))
+    :> projectAs(g -> as.Date(g$key));
+}
+
+let dates = province[1] :> getDateKeys :> orderBy(d -> d);
+
+print("We have date values:");
+print(dates);
