@@ -1,6 +1,7 @@
 require(base.math);
 
-# 区域传染病动力学模型
+# 行政区域传染病动力学模型
+# Demo R#脚本示例
 
 setwd(!script$dir);
 
@@ -49,10 +50,16 @@ setwd(!script$dir);
 # 1. 增加：一部分患病人死亡
 
 # 配置模型参数常量
+
+# 下面的两个传染效率与人群的活动相关，是否应该为两个与人类行为相关的函数而非两个常数？
+# 假若采取正确隔离，戴口罩等方式阻隔传播
+# 则beta0和lambda0参数的值应该变小，表示病毒传播效率降低
+# 反之出现人群聚集或者大规模流动，则下面的两个参数值应该调大，表示病毒传播效率提高
 # 患病病人对健康人的传染效率
 let beta0  <- 2;
 # 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
 let lambda0 <- 8.8e-5;
+
 # 病毒导致的疾病致死率
 let delta <- 0.8;
 # 病毒抗体的失效的速率
@@ -97,9 +104,9 @@ let Cin = 3e-5;
 let Cout = 2e-5;
 
 # 下面的几个参数表示传染病的状态的转换效率
-let Icure = 3e-3;
-let Scure = 3;
-let gamma = 1e-3;
+let Icure = 3e-3;  # 患病病人被治愈的效率
+let Scure = 3;     # 潜伏期的病人自愈的效率
+let gamma = 1e-3;  # 感染病毒的潜伏期病人转换为患病状态的效率
 
 let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
 
@@ -108,7 +115,7 @@ let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
          + iota * T              # 接种抗体
          + Cin                   # 迁入拥有抗体的人口
          - Cout                  # 迁出拥有抗体的人口
-	     - rho * C,              # 抗体失效的人口
+	    - rho * C,              # 抗体失效的人口
 
     T -> Tin                     # 迁入当前区域的健康人数量	 
          + rho * C               # 拥有抗体的人体内的抗体失活转换为普通人    
