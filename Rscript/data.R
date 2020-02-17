@@ -23,14 +23,9 @@ str(lapply(province, prov -> length(prov$group), names = prov -> prov$key));
 let dateKey as function(d) {
     `${d$Year}-${d$Month}-${d$Day}`;
 }
-let getDateKeys as function(prov) {
-    prov
-    :> projectAs(d -> d$updateTime)
-    :> groupBy(d -> dateKey(as.object(d)))
-    :> projectAs(g -> as.Date(g$key));
-}
-
-let dates = province[1] :> getDateKeys :> orderBy(d -> d);
+let dates = raw[, "updateTime"] 
+:> groupBy(d -> dateKey(as.object(d))) 
+:> projectAs(g -> as.Date(g$key));
 
 print("We have date values:");
 print(dates);
