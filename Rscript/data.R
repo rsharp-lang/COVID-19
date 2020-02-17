@@ -57,7 +57,7 @@ let day.data as function(group) {
 
 let province.data as function(prov) {
     # table row subsets
-    prov = prov :> groupBy(d -> dateKey(d$updateTime));
+    prov = prov :> groupBy(d -> dateKey(as.object(d$updateTime)));
     prov = lapply(prov, d -> day.data(d$group), names = d -> d$key);
     prov;
 }
