@@ -52,11 +52,11 @@ setwd(!script$dir);
 # 患病病人对健康人的传染效率
 let beta0  <- 2;
 # 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
-let lambda0 <- 8.8e-17;
+let lambda0 <- 8.8e-5;
 # 病毒导致的疾病致死率
-let delta <- 2.6e-1;
+let delta <- 0.8;
 # 病毒抗体的失效的速率
-let rho <- 5e-2;
+let rho <- 0.5;
 # 病毒抗体的接种效率
 let iota <- 0;
 # 当前的行政区域的面积为一个固定的常量值
@@ -75,7 +75,7 @@ let lambda = population -> lambda0 * (population / area);
 
 # 系统初始值
 let y0 = list(
-	T = 4e4, # 当前行政区域的总人口
+	T = 1e4, # 当前行政区域的总人口
 	C = 0,    # 初期没有人拥有抗体
 	S = 1,    # 最初只有一个潜伏期病人
 	I = 0,    # 最初没有患者
@@ -84,7 +84,7 @@ let y0 = list(
 
 # 下面的几个参数表示人口流动细节
 # 该区域的健康人的迁入/迁出速率
-let Tin = 1e-5;
+let Tin = 1;
 let Tout = 2e-5;
 # 该区域的潜伏期病人的迁入/迁出速率
 let Sin = 1e-5;
