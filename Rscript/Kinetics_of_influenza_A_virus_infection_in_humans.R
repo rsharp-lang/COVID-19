@@ -4,15 +4,17 @@ require(base.math);
 
 setwd(!script$dir);
 
-# config kinetics parameters
-let p     <- 3e-2;
-let cc    <- 2;
-let beta  <- 8.8e-6;
+# 配置模型参数常量
+# 患病病人对健康人的传染效率
+let beta0  <- 8.8e-6;
+# 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
+let lambda0 <- 8.8e-10;
+# 病毒导致的疾病致死率
 let delta <- 2.6;
+# 当前的行政区域的面积为一个固定的常量值
+let area  <- 8000;
 
-# config of the initial status
-let y0 = list(V=1.4e-2, T=4e8, I=0);
-# 区域传染病动力学模型
+# 传染病动力学模型细节
 
 # T 表示当前区域内的健康人的数量，假设健康人的数量受下面的因素影响
 # 1. 减少：一部分健康人口从当前区域迁出
@@ -46,17 +48,52 @@ let y0 = list(V=1.4e-2, T=4e8, I=0);
 # D 表示当前区域内因传染病死亡的病人数量，其只受一个因素影响
 # 1. 增加：一部分患病人死亡
 
+# beta以及lambda为与人口密度相关的两个传染率函数
+#
+# T+S表示健康人与潜伏期病人混合在一起的总人数
+# T+I表示健康人与患者病人混合在一起的总人数
+#
+# 模型还假设潜伏期以及患病状态下的传染效率也有差异
+# 则beta和lambda函数分别为 
+#
+let beta = population -> beta0 * (population / area);
+let lambda = population -> lambda0 * (population / area);	
+
+# 系统初始值
+let y0 = list(
+	T = 4e10, # 当前行政区域的总人口
+	S = 1,    # 最初只有一个潜伏期病人
+	I = 0,    # 最初没有患者
+	D = 0     # 最初没有死亡病人
+);
+
+# 下面的几个参数表示人口流动细节
+# 该区域的健康人的迁入/迁出速率
+let Tin = 10;
+let Tout = 8;
+# 该区域的潜伏期病人的迁入/迁出速率
+let Sin = 6;
+let Sout = 7;
+# 该区域的患病患者的迁入/迁出速率
+let Iin = 3;
+let Iout = 2;
+
+# 下面的几个参数表示传染病的状态的转换效率
+let Icure = 0.3;
+let Scure = 0.3;
+let gamma = 0.5;
+
 let Kinetics_of_influenza_A_virus_infection_in_humans = [
 	T ->  Tin        # 迁入当前区域的健康人数量
 	     + Icure * I # 患病人治愈
 		 + Scure * S # 潜伏期自愈
-		 - beta * T * I  # 被患病病人感染至潜伏期
-		 - lambda * T * S # 被潜伏期病人感染至潜伏期
+		 - beta(T + I) * T * I  # 被患病病人感染至潜伏期
+		 - lambda(T + S) * T * S # 被潜伏期病人感染至潜伏期
 		 - Tout,     # 健康人口迁出当前区域         
 	
 	S -> Sin            # 迁入当前区域的潜伏期病人
-	     + beta * T * I # 健康人被潜伏期患者感染为潜伏期病人
-		 + lambda * T * S # 健康人被患者感染为潜伏期病人
+	     + lambda(T + S) * T * S # 健康人被潜伏期患者感染为潜伏期病人
+		 + beta(T + I) * T * I # 健康人被患者感染为潜伏期病人
 		 - Sout   # 潜伏期病人从当前区域迁出
 		 - gamma * S # 潜伏期转换为患病人
 		 - Scure * S, # 潜伏期自愈
@@ -70,7 +107,7 @@ let Kinetics_of_influenza_A_virus_infection_in_humans = [
 	D -> delta * I, # 死亡的病人，delta可以近似看作为病死率    
 ];
 
-# do run kinetics system simulation
+# 运行传染病模型
 Kinetics_of_influenza_A_virus_infection_in_humans
 :> deSolve(y0, a = 0, b = 7)
 :> as.data.frame 
