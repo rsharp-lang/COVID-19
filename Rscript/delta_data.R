@@ -8,6 +8,7 @@ let yesterday = dataframe::row("n/a");
 let delta;
 let d;
 let date;
+let len as integer;
 
 raw <- rows(raw);
 
@@ -22,12 +23,13 @@ using table as open.csv("../data/COVID-19_delta.csv", encoding = "utf8") {
     for(day in raw :> skip(2)) {
         date      <- day;
         day       <- day :> cells;
-        yesterday <- yesterday :> cells;        
-        day       <- as.numeric(day[2:length(day)]);
-        yesterday <- as.numeric(yesterday[2:length(day)]);
+        yesterday <- yesterday :> cells; 
+        len       <- length(day);
+        day       <- as.numeric(day[2:len]);
+        yesterday <- as.numeric(yesterday[2:len]);
 
-        print(length(day));
-        print(length(yesterday));
+        # str(day);
+        # str(yesterday);
 
         # the negative delta value should be removed
         d         <- sapply(day - yesterday, d -> (d > 0) ? d : 0);        
