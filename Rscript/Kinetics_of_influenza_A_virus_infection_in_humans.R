@@ -4,16 +4,6 @@ require(base.math);
 
 setwd(!script$dir);
 
-# 配置模型参数常量
-# 患病病人对健康人的传染效率
-let beta0  <- 8.8e-6;
-# 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
-let lambda0 <- 8.8e-10;
-# 病毒导致的疾病致死率
-let delta <- 2.6e-3;
-# 当前的行政区域的面积为一个固定的常量值
-let area  <- 8000;
-
 # 传染病动力学模型细节
 
 # T 表示当前区域内的健康人的数量，假设健康人的数量受下面的因素影响
@@ -48,6 +38,16 @@ let area  <- 8000;
 # D 表示当前区域内因传染病死亡的病人数量，其只受一个因素影响
 # 1. 增加：一部分患病人死亡
 
+# 配置模型参数常量
+# 患病病人对健康人的传染效率
+let beta0  <- 8.8e-3;
+# 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
+let lambda0 <- 8.8e-7;
+# 病毒导致的疾病致死率
+let delta <- 2.6e-1;
+# 当前的行政区域的面积为一个固定的常量值
+let area  <- 8000;
+
 # beta以及lambda为与人口密度相关的两个传染率函数
 #
 # T+S表示健康人与潜伏期病人混合在一起的总人数
@@ -61,7 +61,7 @@ let lambda = population -> lambda0 * (population / area);
 
 # 系统初始值
 let y0 = list(
-	T = 4e10, # 当前行政区域的总人口
+	T = 4e5, # 当前行政区域的总人口
 	S = 1,    # 最初只有一个潜伏期病人
 	I = 0,    # 最初没有患者
 	D = 0     # 最初没有死亡病人
@@ -69,19 +69,19 @@ let y0 = list(
 
 # 下面的几个参数表示人口流动细节
 # 该区域的健康人的迁入/迁出速率
-let Tin = 1;
-let Tout = 2;
+let Tin = 1e-5;
+let Tout = 2e-5;
 # 该区域的潜伏期病人的迁入/迁出速率
-let Sin = 0.1;
-let Sout = 0.7;
+let Sin = 1e-5;
+let Sout = 7e-5;
 # 该区域的患病患者的迁入/迁出速率
-let Iin = 3e-4;
-let Iout = 2e-3;
+let Iin = 3e-5;
+let Iout = 2e-5;
 
 # 下面的几个参数表示传染病的状态的转换效率
-let Icure = 0.3;
-let Scure = 0.3;
-let gamma = 0.15;
+let Icure = 3e-3;
+let Scure = 3e-1;
+let gamma = 1e-3;
 
 let Kinetics_of_influenza_A_virus_infection_in_humans = [
 	T ->  Tin        # 迁入当前区域的健康人数量
