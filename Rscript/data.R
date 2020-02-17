@@ -102,7 +102,7 @@ using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
     let dayData;
 
     for (day in dates) {
-        day <- dateKey(day);
+        day <- dateKey(day :> as.object);
         row <- dataframe::row(day);
 
         for(name in proviNames) {
