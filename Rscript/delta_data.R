@@ -35,7 +35,7 @@ using table as open.csv("../data/COVID-19_delta.csv", encoding = "utf8") {
         d         <- sapply(day - yesterday, d -> (d > 0) ? d : 0);        
         yesterday <- date;
         delta     <- dataframe::row((date :> cells)[1]);
-        
+
         delta :> append.cells(d);
         table :> append.row(delta);
     }
