@@ -20,12 +20,18 @@ let province = raw :> as.list(byrow = TRUE) :> groupBy(prov -> prov$provinceEngl
 print("raw data contains of province data:");
 str(lapply(province, prov -> length(prov$group), names = prov -> prov$key));
 
+let updateTime = sapply(raw[, "updateTime"], as.object);
+let year  = sapply(updateTime, d -> d$Year);
+let month = sapply(updateTime, d -> d$Month);
+let day   = sapply(updateTime, d -> d$Day);
+
 let dateKey as function(d) {
     `${d$Year}-${d$Month}-${d$Day}`;
 }
-let dates = raw[, "updateTime"] 
-:> groupBy(d -> dateKey(as.object(d))) 
-:> projectAs(g -> as.Date(g$key));
+
+let dates = sprintf("%s-%s-%s", year, month, day) 
+:> unique 
+:> orderBy(key -> as.Date(key));
 
 print("We have date values:");
 print(dates);
