@@ -77,6 +77,9 @@ let province.data as function(prov.group, name) {
 }
 
 let result <- lapply(province, prov -> province.data(prov$group, prov$key));
+let dateKey as function(d) {
+    `${d$Year}-${d$Month}-${d$Day}`;
+}
 
 names(result) <- sapply(province, prov -> prov$key);
 # str(result);
@@ -99,11 +102,24 @@ using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
     let dayData;
 
     for (day in dates) {
+        day <- dateKey(day);
         row <- dataframe::row(day);
 
         for(name in proviNames) {
             proviData <- result[[name]];
+            dayData <- proviData[[day]];
 
+            if (is.empty(dayData)) {
+                row :> append.cells([0, 0, 0]);
+            } else {
+                row :> append.cells([
+                    dayData$province_confirmedCount, 
+                    dayData$province_curedCount, 
+                    dayData$province_deadCount
+                ]);
+            }
         }
+
+        file :> append.row(row);
     }
 }
