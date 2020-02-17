@@ -29,11 +29,6 @@ let updateTime = sapply(raw[, "updateTime"], as.object);
 let year       = sapply(updateTime, d -> d$Year);
 let month      = sapply(updateTime, d -> d$Month);
 let day        = sapply(updateTime, d -> d$Day);
-
-let dateKey as function(d) {
-    `${d$Year}-${d$Month}-${d$Day}`;
-}
-
 let dates = sprintf("%s-%s-%s", year, month, day) 
 :> unique 
 :> orderBy(key -> as.Date(key));
@@ -55,16 +50,30 @@ let day.data as function(group) {
     );
 }
 
-let province.data as function(prov) {
+let province.data as function(prov.group, name) {
     # table row subsets
-    prov = prov :> groupBy(d -> dateKey(as.object(d$updateTime)));
-    prov = lapply(prov, d -> day.data(d$group), names = d -> d$key);
+    let updateTime = sapply(prov.group, d -> as.object(d$updateTime));
+    let year       = sapply(updateTime, d -> d$Year);
+    let month      = sapply(updateTime, d -> d$Month);
+    let day        = sapply(updateTime, d -> d$Day);
+    let i = 0;
+
+    dates = sprintf("%s-%s-%s", year, month, day);
+
+    print(`Processing ${length(dates)} dates with ${length(prov.group)} records from '${name}'.`);
+
+    let prov  = prov.group :> groupBy(function(d) {
+        i = i + 1; dates[i];
+    });
+
+    # @stop;
+
+    prov  = lapply(prov, d -> day.data(d$group), names = d -> d$key);
     prov;
 }
 
 let result <- for(prov in province) %dopar% {
-    province.data(prov$group);
+    province.data(prov$group, prov$key);
 }
 
-names(result) <- as.character(sapply(province, prov -> prov$key));
 str(result);
