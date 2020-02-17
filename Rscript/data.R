@@ -79,7 +79,7 @@ let province.data as function(prov.group, name) {
 let result <- lapply(province, prov -> province.data(prov$group, prov$key));
 
 names(result) <- sapply(province, prov -> prov$key);
-str(result);
+# str(result);
 
 # write formatted csv table file
 using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
@@ -89,11 +89,21 @@ using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
 
     for(name in proviNames) {
         row :> append.cells(["", name, ""]);
-        row :> append.cells(["confirmed", "cured", "dead"]);
+        sub :> append.cells(["confirmed", "cured", "dead"]);
     }
 
-    file :> add(row);
-    file :> add(sub);
+    file :> append.row(row);
+    file :> append.row(sub);
 
-    # for (day in )
+    let proviData;
+    let dayData;
+
+    for (day in dates) {
+        row <- dataframe::row(day);
+
+        for(name in proviNames) {
+            proviData <- result[[name]];
+
+        }
+    }
 }
