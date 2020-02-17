@@ -10,7 +10,7 @@ let beta0  <- 8.8e-6;
 # 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
 let lambda0 <- 8.8e-10;
 # 病毒导致的疾病致死率
-let delta <- 2.6;
+let delta <- 2.6e-3;
 # 当前的行政区域的面积为一个固定的常量值
 let area  <- 8000;
 
@@ -69,19 +69,19 @@ let y0 = list(
 
 # 下面的几个参数表示人口流动细节
 # 该区域的健康人的迁入/迁出速率
-let Tin = 10;
-let Tout = 8;
+let Tin = 1;
+let Tout = 2;
 # 该区域的潜伏期病人的迁入/迁出速率
-let Sin = 6;
-let Sout = 7;
+let Sin = 0.1;
+let Sout = 0.7;
 # 该区域的患病患者的迁入/迁出速率
-let Iin = 3;
-let Iout = 2;
+let Iin = 3e-4;
+let Iout = 2e-3;
 
 # 下面的几个参数表示传染病的状态的转换效率
 let Icure = 0.3;
 let Scure = 0.3;
-let gamma = 0.5;
+let gamma = 0.15;
 
 let Kinetics_of_influenza_A_virus_infection_in_humans = [
 	T ->  Tin        # 迁入当前区域的健康人数量
