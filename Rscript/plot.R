@@ -9,7 +9,7 @@ let plot.kinetics_var as function(var) {
     kinetics <- result[, var] :> as.numeric;
     serial(time, kinetics, name = var, color = "red")
     :> plot
-    :> save.graphics(file = `./${var}.csv`);
+    :> save.graphics(file = `./viz/${var}.png`);
 }
 
 for(var in ["C", "T", "S", "I", "D"]) {
