@@ -28,8 +28,8 @@ setwd(!script$dir);
 
 # S 表示当前区域内的潜伏期患病人数，假设潜伏期的病人数量受下面的因素影响
 # 1. 减少：一部分潜伏期病人从当前区域迁出
-#         一部分病人转换为患病人
-#         一部分病人自行痊愈
+#          一部分病人转换为患病人
+#          一部分病人自行痊愈
 # 2. 增加: 一部分潜伏期病人迁入当前区域
 #          一部分健康人被传染至潜伏期  
 #
@@ -43,7 +43,7 @@ setwd(!script$dir);
 #         一部分患病人康复
 #         一部分患病人死亡
 # 2. 增加：一部分潜伏期病人成为患病病人
-#         一部分患病人迁入当前区域
+#          一部分患病人迁入当前区域
 
 # D 表示当前区域内因传染病死亡的病人数量，其只受一个因素影响
 # 1. 增加：一部分患病人死亡
@@ -70,12 +70,12 @@ let area  <- 8000;
 # 模型还假设潜伏期以及患病状态下的传染效率也有差异
 # 则beta和lambda函数分别为 
 #
-let beta = population -> beta0 * (population / area);
+let beta   = population -> beta0 * (population / area);
 let lambda = population -> lambda0 * (population / area);	
 
 # 系统初始值
 let y0 = list(
-	T = 1e4, # 当前行政区域的总人口
+	T = 1e4,  # 当前行政区域的总人口
 	C = 0,    # 初期没有人拥有抗体
 	S = 1,    # 最初只有一个潜伏期病人
 	I = 0,    # 最初没有患者
@@ -103,36 +103,36 @@ let gamma = 1e-3;
 
 let Kinetics_of_influenza_A_virus_infection_in_humans = [
 
-	C -> Icure * I   # 患病病人被治愈
-     + Scure * S # 潜伏期病人自愈
-	 + iota * T  # 接种抗体
-	 + Cin    # 迁入拥有抗体的人口
-	 - Cout   # 迁出拥有抗体的人口
-	 - rho * C,  # 抗体失效的人口
+	C -> Icure * I               # 患病病人被治愈
+         + Scure * S             # 潜伏期病人自愈
+	     + iota * T              # 接种抗体
+	     + Cin                   # 迁入拥有抗体的人口
+	     - Cout                  # 迁出拥有抗体的人口
+	     - rho * C,              # 抗体失效的人口
 
-	T ->  Tin        # 迁入当前区域的健康人数量	 
-	     + rho * C   # 拥有抗体的人体内的抗体失活转换为普通人    
-		 - beta(T + I) * T * I  # 被患病病人感染至潜伏期
+	T -> Tin                     # 迁入当前区域的健康人数量	 
+	     + rho * C               # 拥有抗体的人体内的抗体失活转换为普通人    
+		 - beta(T + I) * T * I   # 被患病病人感染至潜伏期
 		 - lambda(T + S) * T * S # 被潜伏期病人感染至潜伏期
-		 - Tout,     # 健康人口迁出当前区域         
+		 - Tout,                 # 健康人口迁出当前区域         
 	
-	S -> Sin            # 迁入当前区域的潜伏期病人
+	S -> Sin                     # 迁入当前区域的潜伏期病人
 	     + lambda(T + S) * T * S # 健康人被潜伏期患者感染为潜伏期病人
-		 + beta(T + I) * T * I # 健康人被患者感染为潜伏期病人
-		 - Sout   # 潜伏期病人从当前区域迁出
-		 - gamma * S # 潜伏期转换为患病人
-		 - Scure * S, # 潜伏期自愈
+		 + beta(T + I) * T * I   # 健康人被患者感染为潜伏期病人
+		 - Sout                  # 潜伏期病人从当前区域迁出
+		 - gamma * S             # 潜伏期转换为患病人
+		 - Scure * S,            # 潜伏期自愈
 
-	I -> gamma * S # 潜伏期病人转换为患病人
-	     + Iin   # 迁入当前区域的患病人
-		 - Iout # 从当前区域迁出的患病人
-		 - Icure * I # 被治愈的病人
-		 - delta * I, # 死亡的病人  
+	I -> gamma * S               # 潜伏期病人转换为患病人
+	     + Iin                   # 迁入当前区域的患病人
+		 - Iout                  # 从当前区域迁出的患病人
+		 - Icure * I             # 被治愈的病人
+		 - delta * I,            # 死亡的病人  
     
-	D -> delta * I, # 死亡的病人，delta可以近似看作为病死率    
+	D -> delta * I               # 死亡的病人，delta可以近似看作为病死率    
 ];
 
-# 运行传染病模型
+# 运行传染病动力学模型
 Kinetics_of_influenza_A_virus_infection_in_humans
 :> deSolve(y0, a = 0, b = 100)
 :> as.data.frame 
