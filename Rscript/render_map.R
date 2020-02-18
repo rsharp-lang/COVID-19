@@ -49,10 +49,16 @@ let COVID_19.map_render.china as function(day, levels = 30, type = ["confirmed",
 
 # 渲染的颜色可以在这里进行设置
 # 在这里使用颜色集名称作为颜色来源
+# 颜色集名称可以参考文档：
+# https://github.com/xieguigang/sciBASIC/blob/master/gr/Microsoft.VisualBasic.Imaging/Drawing2D/Colors/DesignerTerms.vb#L53
 let color_set as string = "RdPu:c6";
 
-# 也可以使用自定义颜色集
-color_set = ["white", "blue", "red"];
+# color_set = "YlOrBr:c6";
+
+# 也可以使用自定义颜色集，颜色数量可以为任意多个颜色字符串
+# 支持html颜色代码
+# 例如：白 绿 蓝
+color_set = ["white", "#2EFE64", "blue"];
 
 # 修改下面的日期，类型进行地图的彩色渲染
 ["2020-2-18"]
