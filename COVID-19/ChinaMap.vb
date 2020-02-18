@@ -13,10 +13,5 @@ Module ChinaMap
     Public Function CreateMap() As SVGData
         Return GeoMapRender.Render(CN.GeoChina()).AddAdministrativeInformation
     End Function
-
-    <ExportAPI("heatmap")>
-    Public Function RenderHeatMap(map As SVGData) As SVGData
-
-    End Function
 End Module
 
