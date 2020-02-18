@@ -19,7 +19,7 @@ let load_raw as function(file.csv) {
             dist = list(name = name);
 
             for(n in 1:3) {
-                dist[[types[i]]] <- day[i];
+                dist[[types[i]]] <- as.numeric(day[i]);
                 i <- i + 1;
             }
 
