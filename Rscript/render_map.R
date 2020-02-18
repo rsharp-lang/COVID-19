@@ -51,6 +51,8 @@ let COVID_19.map_render.china as function(day, levels = 30, type = ["confirmed",
 # 在这里使用颜色集名称作为颜色来源
 # 颜色集名称可以参考文档：
 # https://github.com/xieguigang/sciBASIC/blob/master/gr/Microsoft.VisualBasic.Imaging/Drawing2D/Colors/DesignerTerms.vb#L53
+# 颜色集颜色列表的展示可以查看文件夹
+# https://github.com/xieguigang/sciBASIC/tree/master/gr/Colors/colorbrewer
 let color_set as string = "RdPu:c6";
 
 # color_set = "YlOrBr:c6";

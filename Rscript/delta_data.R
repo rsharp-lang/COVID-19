@@ -1,5 +1,7 @@
 require(dataframe);
 
+# 这个脚本将累计结果值处理为每日新增结果值
+
 setwd(!script$dir);
 cat("\n");
 

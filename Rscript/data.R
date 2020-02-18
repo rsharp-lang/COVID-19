@@ -1,6 +1,8 @@
 # Data formatter of the test data
 # https://github.com/BlankerL/DXY-COVID-19-Data/blob/master/csv/DXYArea.csv
 
+# 将原始文件处理为比较容易阅读的累计人数结果表格
+
 require(dataframe);
 
 setwd(!script$dir);
