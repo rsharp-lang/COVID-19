@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-16"?>
 <svg xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" width="2500px" height="2000px" viewBox="0 0 2500 2000" preserveAspectRatio="xMaxYMax" xmlns="http://www.w3.org/2000/svg">
-  <style type="text/css">svg{ background: #FFFFFF; stroke: black;}.Hubei {
+  <style type="text/css">svg{ background: #FFFFFF; stroke: black;}  polygon{
+   fill: #FFFFFF; stroke: black;
+  }
+
+.Hubei {
 fill: #0015F0;
 }
 
