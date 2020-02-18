@@ -56,14 +56,14 @@ setwd(!script$dir);
 # 则beta0和lambda0参数的值应该变小，表示病毒传播效率降低
 # 反之出现人群聚集或者大规模流动，则下面的两个参数值应该调大，表示病毒传播效率提高
 # 患病病人对健康人的传染效率
-let beta0  <- 2;
+let beta0  <- 1;
 # 潜伏期病人对健康人的传染效率假设低于患病病人的传染效率
-let lambda0 <- 8.8e-5;
+let lambda0 <- 8.8e-3;
 
 # 病毒导致的疾病致死率
-let delta <- 0.8;
+let delta <- 0.1;
 # 病毒抗体的失效的速率
-let rho <- 0.5;
+let rho <- 2;
 # 病毒抗体的接种效率
 let iota <- 0;
 # 当前的行政区域的面积为一个固定的常量值
@@ -104,9 +104,9 @@ let Cin = 3e-5;
 let Cout = 2e-5;
 
 # 下面的几个参数表示传染病的状态的转换效率
-let Icure = 3e-3;  # 患病病人被治愈的效率
-let Scure = 3;     # 潜伏期的病人自愈的效率
-let gamma = 1e-3;  # 感染病毒的潜伏期病人转换为患病状态的效率
+let Icure = 0.5;  # 患病病人被治愈的效率
+let Scure = 2;     # 潜伏期的病人自愈的效率
+let gamma = 0.5;  # 感染病毒的潜伏期病人转换为患病状态的效率
 
 let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
 
@@ -141,7 +141,7 @@ let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
 
 # 运行传染病动力学模型
 Kinetics_of_SARS_CoV_2_virus_infection_in_humans
-:> deSolve(y0, a = 0, b = 100)
+:> deSolve(y0, a = 0, b = 31)
 :> as.data.frame 
 :> write.csv(file = "./Kinetics_of_SARS-CoV-2_virus_infection_in_humans.csv")
 ;
