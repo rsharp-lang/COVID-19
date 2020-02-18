@@ -1,6 +1,6 @@
 # Kinetics model of SARS-CoV-2 virus infection in humans
 
-[![DOI](https://zenodo.org/badge/241013898.svg)](https://zenodo.org/badge/latestdoi/241013898)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3672419.svg)](https://doi.org/10.5281/zenodo.3672419)
 
 ###### [WARNING] This project is a work in progress and is not recommended for production use.
 
