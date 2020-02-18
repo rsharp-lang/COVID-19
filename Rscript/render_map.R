@@ -12,7 +12,13 @@ setwd(!script$dir);
 # 文件 "../data/DXYArea_simple.csv" 为全国累计结果数据
 let raw = load_raw(file.csv = "../data/DXYArea_simple.csv");
 
-let COVID_19.map_render.china as function(day, levels = 30, source = ["confirmed", "cured", "dead"], color.schema = "Reds:c6", log.scale = TRUE) {
+let COVID_19.map_render.china as function(
+    day, 
+    levels = 30, 
+    source = ["confirmed", "cured", "dead"], 
+    color.schema = "Reds:c6", 
+    log.scale = TRUE) {
+
     # create a blank svg map of china
     let svg = map.china();
     let data.test <- NULL;
