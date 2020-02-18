@@ -11,3 +11,10 @@ An infectious disease kinetics model of SARS-CoV-2 virus infection in humans wit
 ![](Rscript/viz/I.png)
 ![](Rscript/viz/S.png)
 ![](Rscript/viz/T.png)
+
+
+### Visualize on the map of China
+
+#### How to use
+
+ 

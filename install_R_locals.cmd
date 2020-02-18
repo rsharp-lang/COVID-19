@@ -1,5 +1,7 @@
 @echo off
 
+REM you should run this script at first!
+
 CD App
 
 R# install.packages('COVID-19.dll');
