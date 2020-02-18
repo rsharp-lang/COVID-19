@@ -12,10 +12,16 @@ setwd(!script$dir);
 # 文件 "../data/DXYArea_simple.csv" 为全国累计结果数据
 let raw = load_raw(file.csv = "../data/DXYArea_simple.csv");
 
-let COVID_19.map_render.china as function(day, levels = 30, type = ["confirmed", "cured", "dead"], color.schema = "Reds:c6") {
-    let data.test <- lapply(raw[[day]], region -> region[[type]]);
+let COVID_19.map_render.china as function(day, levels = 30, source = ["confirmed", "cured", "dead"], color.schema = "Reds:c6", log.scale = TRUE) {
     # create a blank svg map of china
     let svg = map.china();
+    let data.test <- NULL;
+
+    if (is.character(source)) {
+        data.test <- lapply(raw[[day]], region -> region[[source[1]]])
+    } else {
+        data.test <- source(day);
+    }
 
     # view data summary
     str(data.test);
@@ -23,7 +29,14 @@ let COVID_19.map_render.china as function(day, levels = 30, type = ["confirmed",
     let colors = colors(color.schema, levels, character = TRUE);
     # 因为不同省份的数据差异较大
     # 所以在这里做log转换
-    let values = log( sapply(names(data.test), name -> data.test[[name]])+1);
+    let values as double = sapply(names(data.test), name -> data.test[[name]]);
+    
+    if (log.scale) {
+        values = log(values +1);
+    } else {
+        # do nothing
+    }
+    
     let range = [min(values), max(values)];
 
     print("Value range in target day:");
@@ -62,16 +75,30 @@ let color_set as string = "RdPu:c6";
 # 也可以使用自定义颜色集，颜色数量可以为任意多个颜色字符串
 # 支持html颜色代码
 # 例如：白 绿 蓝
-color_set = ["white", "#2EFE64", "blue"];
+# color_set = ["white", "#2EFE64", "blue"];
 
-# 修改下面的日期，类型进行地图的彩色渲染
+# 修改下面的日期，数据源进行地图的彩色渲染
 ["2020-2-18"]
 :> COVID_19.map_render.china(
       levels = 30, 
-      type = "confirmed", 
+      source = "confirmed", 
       color.schema = color_set
    ) 
 :> save.graphics(file = "./viz/2020-2-18.confirmed.svg")
 ;
 
+# 自定义数据可视化: 治愈人数 / 确诊人数
+let custom = function(day) {
+    lapply(raw[[day]], region -> region$cured / region$confirmed)
+};
+
+["2020-2-18"]
+:> COVID_19.map_render.china(
+      levels = 30, 
+      source = custom, 
+      color.schema = ["red", "yellow", "green"],
+      log.scale = FALSE
+   ) 
+:> save.graphics(file = "./viz/2020-2-18.cured_vs_confirmed.svg")
+;
 

@@ -5,131 +5,131 @@
   }
 
 .Hubei {
-fill: #87037A;
+fill: #FF5C00;
 }
 
 .Zhejiang {
-fill: #F768A1;
+fill: #FFF200;
 }
 
 .Anhui {
-fill: #FA74A5;
+fill: #FFCD00;
 }
 
 .Hunan {
-fill: #F768A1;
+fill: #FFFF00;
 }
 
 .Shaanxi {
-fill: #FB98B3;
+fill: #FFCD00;
 }
 
 .Guangdong {
-fill: #F768A1;
+fill: #FFE800;
 }
 
 .Heilongjiang {
-fill: #FC88AC;
+fill: #FF8600;
 }
 
 .Jiangsu {
-fill: #FB7EA9;
+fill: #FFF200;
 }
 
 .Sichuan {
-fill: #FB7EA9;
+fill: #FFBE00;
 }
 
 .Shanghai {
-fill: #FB90B0;
+fill: #FFFF00;
 }
 
 .Guangxi {
-fill: #FB90B0;
+fill: #FFAC00;
 }
 
 .Shandong {
-fill: #FB7EA9;
+fill: #FFCD00;
 }
 
 .Liaoning {
-fill: #FA9FB5;
+fill: #FFDB00;
 }
 
 .Qinghai {
-fill: #FCC5C0;
+fill: #8EDE00;
 }
 
 .Yunnan {
-fill: #FB98B3;
+fill: #FFBE00;
 }
 
 .Henan {
-fill: #F768A1;
+fill: #FFE800;
 }
 
 .Tianjin {
-fill: #FA9FB5;
+fill: #FFDB00;
 }
 
 .Beijing {
-fill: #FC88AC;
+fill: #FFBE00;
 }
 
 .Neimenggu {
-fill: #FAACB8;
+fill: #FF4500;
 }
 
 .Jiangxi {
-fill: #FA74A5;
+fill: #FFCD00;
 }
 
 .Guizhou {
-fill: #FA9FB5;
+fill: #FFF200;
 }
 
 .Xinjiang {
-fill: #FAACB8;
+fill: #FF7100;
 }
 
 .Fujian {
-fill: #FB90B0;
+fill: #FFBE00;
 }
 
 .Hebei {
-fill: #FB90B0;
+fill: #FFE800;
 }
 
 .Chongqing {
-fill: #FB7EA9;
+fill: #FFE800;
 }
 
 .Shanxi {
-fill: #FA9FB5;
+fill: #FFE800;
 }
 
 .Gansu {
-fill: #FAA6B7;
+fill: #DEFF00;
 }
 
 .Hainan {
-fill: #FA9FB5;
+fill: #FFCD00;
 }
 
 .Jilin {
-fill: #FAA6B7;
+fill: #FFDB00;
 }
 
 .Ningxia {
-fill: #FAACB8;
+fill: #FFF900;
 }
 
 .Xizang {
-fill: #FEEBE2;
+fill: #158F00;
 }
 
 .Macao {
-fill: #FEE5DB;
+fill: #FF0000;
 }</style>
   <!--
       SVG document was created by sciBASIC svg image driver:
