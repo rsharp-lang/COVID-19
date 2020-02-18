@@ -27,7 +27,13 @@ let color_set as string = "RdPu:c6";
 
 # 自定义数据可视化: 治愈人数 / 确诊人数
 let custom = function(day) {
-    lapply(raw[[day]], region -> region$cured / region$confirmed)
+    lapply(raw[[day]], function(region) {
+        if (region$cured == 0.0) {
+            0;
+        } else {
+            region$cured / region$confirmed
+        }
+    });
 };
 
 ["2020-2-18"]
