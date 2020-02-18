@@ -1,30 +1,10 @@
 <?xml version="1.0" encoding="utf-16"?>
 <svg xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" width="5000" height="3000" xmlns="http://www.w3.org/2000/svg">
-  <style type="text/css">svg{ fill: #FFFFFF; stroke: black;}.Henan {
-fill: #19DD6D;
+  <style type="text/css">svg{ fill: #FFFFFF; stroke: black;}.Hubei {
+fill: #0015F0;
 }
 
-.Beijing {
-fill: #2EFE64;
-}
-
-.Neimenggu {
-fill: #65FF7B;
-}
-
-.Yunnan {
-fill: #41FF68;
-}
-
-.Jiangxi {
-fill: #1FEA68;
-}
-
-.Hunan {
-fill: #19DD6D;
-}
-
-.Guangdong {
+.Zhejiang {
 fill: #19DD6D;
 }
 
@@ -32,12 +12,20 @@ fill: #19DD6D;
 fill: #1FEA68;
 }
 
-.Zhejiang {
+.Hunan {
 fill: #19DD6D;
 }
 
-.Guizhou {
-fill: #4CFF6D;
+.Shaanxi {
+fill: #41FF68;
+}
+
+.Guangdong {
+fill: #19DD6D;
+}
+
+.Heilongjiang {
+fill: #2EFE64;
 }
 
 .Jiangsu {
@@ -48,15 +36,7 @@ fill: #26F565;
 fill: #26F565;
 }
 
-.Xinjiang {
-fill: #65FF7B;
-}
-
-.Shandong {
-fill: #26F565;
-}
-
-.Fujian {
+.Shanghai {
 fill: #37FF65;
 }
 
@@ -64,20 +44,56 @@ fill: #37FF65;
 fill: #37FF65;
 }
 
-.Heilongjiang {
+.Shandong {
+fill: #26F565;
+}
+
+.Liaoning {
+fill: #4CFF6D;
+}
+
+.Qinghai {
+fill: #9EFFA7;
+}
+
+.Yunnan {
+fill: #41FF68;
+}
+
+.Henan {
+fill: #19DD6D;
+}
+
+.Tianjin {
+fill: #4CFF6D;
+}
+
+.Beijing {
 fill: #2EFE64;
+}
+
+.Neimenggu {
+fill: #65FF7B;
+}
+
+.Jiangxi {
+fill: #1FEA68;
+}
+
+.Guizhou {
+fill: #4CFF6D;
+}
+
+.Xinjiang {
+fill: #65FF7B;
+}
+
+.Fujian {
+fill: #37FF65;
 }
 
 .Hebei {
 fill: #37FF65;
-}
-
-.Shanghai {
-fill: #37FF65;
-}
-
-.Hubei {
-fill: #0015F0;
 }
 
 .Chongqing {
@@ -92,18 +108,6 @@ fill: #4CFF6D;
 fill: #58FF73;
 }
 
-.Tianjin {
-fill: #4CFF6D;
-}
-
-.Shaanxi {
-fill: #41FF68;
-}
-
-.Liaoning {
-fill: #4CFF6D;
-}
-
 .Hainan {
 fill: #4CFF6D;
 }
@@ -114,10 +118,6 @@ fill: #58FF73;
 
 .Ningxia {
 fill: #65FF7B;
-}
-
-.Qinghai {
-fill: #9EFFA7;
 }
 
 .Xizang {
@@ -134,11 +134,11 @@ fill: #EEFFF0;
 
       
            model:     Microsoft.VisualBasic.Imaging.SVG.XML.SVGXml
-           assembly:  Microsoft.VisualBasic.Imaging, Version=4.7.7353.25507, Culture=neutral, PublicKeyToken=null
-           version:   4.7.7353.25507
-           built:     2/18/2020 2:10:14 PM
-           md5:       fcc93f94c5353f44235e30f5301ed80a
-           timestamp: 2/18/2020 2:10:14 PM
+           assembly:  Microsoft.VisualBasic.Imaging, Version=4.7.7353.26914, Culture=neutral, PublicKeyToken=null
+           version:   4.7.7353.26914
+           built:     2/18/2020 2:57:08 PM
+           md5:       916142b875e07330a88187b2e3d5c4a2
+           timestamp: 2/18/2020 2:57:08 PM
         
       
   -->
