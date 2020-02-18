@@ -32,4 +32,15 @@ let load_raw as function(file.csv) {
     # str(data);
 
     data;
-} 
+}
+
+let get_all_dates as function(file.csv) {
+    let raw = read.csv.raw(file.csv, encoding = "utf8") :> rows;
+    let all <- [];
+
+    for(r in raw :> skip(2)) {
+        all <- all << (r :> cells)[1];
+    }
+
+    all;
+}

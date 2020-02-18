@@ -10,7 +10,9 @@ setwd(!script$dir);
 # load_raw函数来自于所导入的data_reader.R脚本文件
 # 文件 "../data/COVID-19_delta.csv" 为全国每日新增数据
 # 文件 "../data/DXYArea_simple.csv" 为全国累计结果数据
-let raw = load_raw(file.csv = "../data/DXYArea_simple.csv");
+let file.csv as string = "../data/DXYArea_simple.csv";
+let raw = load_raw(file.csv = file.csv);
+let dates.all = get_all_dates(file.csv);
 
 let COVID_19.map_render.china as function(
     day, 
