@@ -1,3 +1,5 @@
+# Map Visualization of the Plague COVID-19 in China
+
 # How to use
 
 ![](images/Map.PNG)
