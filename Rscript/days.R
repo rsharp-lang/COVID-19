@@ -4,7 +4,13 @@ print(dates.all);
 
 # 自定义数据可视化: 治愈人数 / 确诊人数
 let custom = function(day) {
-    lapply(raw[[day]], region -> region$cured / region$confirmed)
+    lapply(raw[[day]], function(region) {
+        if (region$cured == 0.0) {
+            0;
+        } else {
+            region$cured / region$confirmed
+        }
+    });
 };
 
 for(day in dates.all) {
@@ -14,7 +20,7 @@ for(day in dates.all) {
         source = "confirmed", 
         color.schema = ["white", "yellow", "red"]
     ) 
-    :> save.graphics(file = `./viz/days/${day}.confirmed.svg`)
+    :> save.graphics(file = `./viz/days/${day}/confirmed.svg`)
     ;
 
     day
@@ -24,7 +30,7 @@ for(day in dates.all) {
         color.schema = ["red", "yellow", "green"],
         log.scale = FALSE
     ) 
-    :> save.graphics(file = `./viz/days/${day}.cured_vs_confirmed.svg`)
+    :> save.graphics(file = `./viz/days/${day}/cured_vs_confirmed.svg`)
     ;
 }
 
