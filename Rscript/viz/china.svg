@@ -1,7 +1,131 @@
 <?xml version="1.0" encoding="utf-16"?>
 <svg xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" width="5000" height="3000" xmlns="http://www.w3.org/2000/svg">
-  <style type="text/css">svg{ fill: #FFFFFF; stroke: black;}.Guangxi {
-fill: red;
+  <style type="text/css">svg{ fill: #FFFFFF; stroke: black;}.Henan {
+fill: #F96043;
+}
+
+.Beijing {
+fill: #FD7A57;
+}
+
+.Neimenggu {
+fill: #FC9F81;
+}
+
+.Yunnan {
+fill: #FC8C6B;
+}
+
+.Jiangxi {
+fill: #FB6A4A;
+}
+
+.Hunan {
+fill: #F96043;
+}
+
+.Guangdong {
+fill: #F5563D;
+}
+
+.Anhui {
+fill: #FB6A4A;
+}
+
+.Zhejiang {
+fill: #F5563D;
+}
+
+.Guizhou {
+fill: #FC9879;
+}
+
+.Jiangsu {
+fill: #FC7251;
+}
+
+.Sichuan {
+fill: #FD7A57;
+}
+
+.Xinjiang {
+fill: #FBA688;
+}
+
+.Shandong {
+fill: #FD7A57;
+}
+
+.Fujian {
+fill: #FD805E;
+}
+
+.Guangxi {
+fill: #FD8664;
+}
+
+.Heilongjiang {
+fill: #FD8664;
+}
+
+.Hebei {
+fill: #FD8664;
+}
+
+.Shanghai {
+fill: #FD805E;
+}
+
+.Hubei {
+fill: #AF1217;
+}
+
+.Chongqing {
+fill: #FC7251;
+}
+
+.Shanxi {
+fill: #FC9272;
+}
+
+.Gansu {
+fill: #FC9879;
+}
+
+.Tianjin {
+fill: #FC9272;
+}
+
+.Shaanxi {
+fill: #FD8664;
+}
+
+.Liaoning {
+fill: #FC9272;
+}
+
+.Hainan {
+fill: #FC9272;
+}
+
+.Jilin {
+fill: #FC9F81;
+}
+
+.Ningxia {
+fill: #FBA688;
+}
+
+.Qinghai {
+fill: #FCB498;
+}
+
+.Xizang {
+fill: #FEE5D9;
+}
+
+.Macao {
+fill: #FEDECF;
 }</style>
   <!--
       SVG document was created by sciBASIC svg image driver:
