@@ -11,7 +11,7 @@ Module ChinaMap
 
     <ExportAPI("map.china")>
     Public Function CreateMap() As SVGData
-        Return GeoMapRender.Render(CN.GeoChina()).AddAdministrativeInformation
+        Return GeoMapRender.Render(CN.GeoChina(), "2500,2000").AddAdministrativeInformation
     End Function
 End Module
 
