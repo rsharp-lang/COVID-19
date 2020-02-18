@@ -5,7 +5,7 @@ imports "grDevices.SVG" from "R.graphics.dll";
 let svg = map.china();
 
 # test css styling
-svg :> styles(".Guangxi", list("background-color" = "red"));
+svg :> styles(".Guangxi", list("fill" = "red"));
 
 svg :> save.graphics(file = "./china.svg");
 
