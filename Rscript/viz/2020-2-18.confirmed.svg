@@ -1,131 +1,131 @@
 <?xml version="1.0" encoding="utf-16"?>
 <svg xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" width="5000" height="3000" xmlns="http://www.w3.org/2000/svg">
   <style type="text/css">svg{ fill: #FFFFFF; stroke: black;}.Henan {
-fill: #FB6A4A;
+fill: #0E00DE;
 }
 
 .Beijing {
-fill: #FD805E;
+fill: #0000FF;
 }
 
 .Neimenggu {
-fill: #FC9F81;
+fill: #263DFF;
 }
 
 .Yunnan {
-fill: #FC8C6B;
+fill: #0614FF;
 }
 
 .Jiangxi {
-fill: #FC7251;
+fill: #0600EB;
 }
 
 .Hunan {
-fill: #FB6A4A;
+fill: #0E00DE;
 }
 
 .Guangdong {
-fill: #FB6A4A;
+fill: #0E00DE;
 }
 
 .Anhui {
-fill: #FC7251;
+fill: #0600EB;
 }
 
 .Zhejiang {
-fill: #FB6A4A;
+fill: #0E00DE;
 }
 
 .Guizhou {
-fill: #FC9272;
+fill: #0E21FF;
 }
 
 .Jiangsu {
-fill: #FD7A57;
+fill: #0200F6;
 }
 
 .Sichuan {
-fill: #FD7A57;
+fill: #0200F6;
 }
 
 .Xinjiang {
-fill: #FC9F81;
+fill: #263DFF;
 }
 
 .Shandong {
-fill: #FD7A57;
+fill: #0200F6;
 }
 
 .Fujian {
-fill: #FD8664;
+fill: #0209FF;
 }
 
 .Guangxi {
-fill: #FD8664;
+fill: #0209FF;
 }
 
 .Heilongjiang {
-fill: #FD805E;
+fill: #0000FF;
 }
 
 .Hebei {
-fill: #FD8664;
+fill: #0209FF;
 }
 
 .Shanghai {
-fill: #FD8664;
+fill: #0209FF;
 }
 
 .Hubei {
-fill: #AF1217;
+fill: #E60015;
 }
 
 .Chongqing {
-fill: #FD7A57;
+fill: #0200F6;
 }
 
 .Shanxi {
-fill: #FC9272;
+fill: #0E21FF;
 }
 
 .Gansu {
-fill: #FC9879;
+fill: #192EFF;
 }
 
 .Tianjin {
-fill: #FC9272;
+fill: #0E21FF;
 }
 
 .Shaanxi {
-fill: #FC8C6B;
+fill: #0614FF;
 }
 
 .Liaoning {
-fill: #FC9272;
+fill: #0E21FF;
 }
 
 .Hainan {
-fill: #FC9272;
+fill: #0E21FF;
 }
 
 .Jilin {
-fill: #FC9879;
+fill: #192EFF;
 }
 
 .Ningxia {
-fill: #FC9F81;
+fill: #263DFF;
 }
 
 .Qinghai {
-fill: #FCBBA1;
+fill: #6E84FF;
 }
 
 .Xizang {
-fill: #FEE5D9;
+fill: #FFFFFF;
 }
 
 .Macao {
-fill: #FEDECF;
+fill: #E6EAFF;
 }</style>
   <!--
       SVG document was created by sciBASIC svg image driver:

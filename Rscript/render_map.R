@@ -10,7 +10,7 @@ setwd(!script$dir);
 # load_raw函数来自于所导入的data_reader.R脚本文件
 let raw = load_raw(file.csv = "../data/DXYArea_simple.csv");
 
-let COVID_19.map_render.china as function(day, levels = 30, type = "confirmed") {
+let COVID_19.map_render.china as function(day, levels = 30, type = ["confirmed", "cured", "dead"], color.schema = "Reds:c6") {
     let data.test <- lapply(raw[[day]], region -> region[[type]]);
     # create a blank svg map of china
     let svg = map.china();
@@ -18,7 +18,7 @@ let COVID_19.map_render.china as function(day, levels = 30, type = "confirmed") 
     # view data summary
     str(data.test);
 
-    let colors = colors("Reds:c6", levels, character = TRUE);
+    let colors = colors(color.schema, levels, character = TRUE);
     # 因为不同省份的数据差异较大
     # 所以在这里做log转换
     let values = log( sapply(names(data.test), name -> data.test[[name]])+1);
@@ -47,9 +47,20 @@ let COVID_19.map_render.china as function(day, levels = 30, type = "confirmed") 
     svg;
 }
 
+# 渲染的颜色可以在这里进行设置
+# 在这里使用颜色集名称作为颜色来源
+let color_set as string = "RdPu:c6";
+
+# 也可以使用自定义颜色集
+color_set = ["white", "blue", "red"];
+
 # 修改下面的日期，类型进行地图的彩色渲染
 ["2020-2-18"]
-:> COVID_19.map_render.china(levels = 30, type = "confirmed") 
+:> COVID_19.map_render.china(
+      levels = 30, 
+      type = "confirmed", 
+      color.schema = color_set
+   ) 
 :> save.graphics(file = "./viz/2020-2-18.confirmed.svg")
 ;
 
