@@ -47,8 +47,9 @@ let COVID_19.map_render.china as function(day, levels = 30, type = "confirmed") 
     svg;
 }
 
+# 修改下面的日期，类型进行地图的彩色渲染
 ["2020-2-18"]
-:> COVID_19.map_render.china(type = "confirmed") 
+:> COVID_19.map_render.china(levels = 30, type = "confirmed") 
 :> save.graphics(file = "./viz/2020-2-18.confirmed.svg")
 ;
 
