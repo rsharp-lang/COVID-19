@@ -1,4 +1,5 @@
-﻿Imports SMRUCC.Rsharp.Interpreter
+﻿Imports Microsoft.VisualBasic.Math.Calculus.Dynamics
+Imports SMRUCC.Rsharp.Interpreter
 Imports SMRUCC.Rsharp.Runtime
 Imports SMRUCC.Rsharp.System.Configuration
 
@@ -20,7 +21,7 @@ Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
     ''' </summary>
     ''' <param name="y0"></param>
     ''' <returns></returns>
-    Public Function CreateInstance(y0 As InitialStatus)
+    Public Function CreateInstance(y0 As InitialStatus) As SolverIterator
         Dim config As Options = If(Me.config.FileExists, New Options(Me.config), Nothing)
         Dim engine As New RInterpreter(config) With {.debug = True}
         Dim handle As Action(Of Environment) =
@@ -38,7 +39,7 @@ Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
         )"))
         Call engine.Add("tick", CObj(handle))
 
-        Dim iterator = engine.Evaluate("deSolve(
+        Dim iterator As SolverIterator = engine.Evaluate("deSolve(
             Kinetics_of_SARS_CoV_2_virus_infection_in_humans, y0, 
             a = 0, 
             b = 31, 
@@ -52,7 +53,7 @@ End Class
 
 Public Class InitialStatus
 
-    Public Property T As Integer
+    Public Property T As Integer = 50000
     Public Property C As Integer
     Public Property S As Integer = 1
     Public Property I As Integer
