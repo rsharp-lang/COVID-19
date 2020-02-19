@@ -1,10 +1,5 @@
 require(base.math);
 
-# 行政区域传染病动力学模型
-# Demo R#脚本示例
-
-setwd(!script$dir);
-
 # 传染病动力学模型细节
 
 # C 表示当前区域内的拥有病毒抗体的健康人数量，假设拥有抗体的健康人数量受下面的因素影响
@@ -139,9 +134,3 @@ let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
     D -> delta * I               # 死亡的病人，delta可以近似看作为病死率    
 ];
 
-# 运行传染病动力学模型
-Kinetics_of_SARS_CoV_2_virus_infection_in_humans
-:> deSolve(y0, a = 0, b = 31)
-:> as.data.frame 
-:> write.csv(file = "./Kinetics_of_SARS-CoV-2_virus_infection_in_humans.csv")
-;
