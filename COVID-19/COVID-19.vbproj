@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChinaMap.vb" />
+    <Compile Include="Kinetics_of_SARS_CoV_2_virus_infection_in_humans.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -149,6 +150,10 @@
     <ProjectReference Include="..\..\Data.GIS\Data.GIS\Data.GIS.vbproj">
       <Project>{4dab24a6-7960-422c-b7c7-38b97caa3b63}</Project>
       <Name>Data.GIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GCModeller\src\R-sharp\R#\R.vbproj">
+      <Project>{0C2EB77C-39F2-460D-A3F8-CE905F867637}</Project>
+      <Name>R</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\GCModeller\src\runtime\sciBASIC#\gr\Microsoft.VisualBasic.Imaging\Microsoft.VisualBasic.Imaging.vbproj">
       <Project>{85E71B4B-9276-4EC8-AADC-C849205F1EA8}</Project>
