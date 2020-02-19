@@ -86,7 +86,7 @@ let y0 = list(
 
 # 下面的几个参数表示人口流动细节
 # 该区域的健康人的迁入/迁出速率
-let Tin = 1;
+let Tin = 2;
 let Tout = 2e-5;
 # 该区域的潜伏期病人的迁入/迁出速率
 let Sin = 1e-5;
@@ -95,7 +95,7 @@ let Sout = 7e-5;
 let Iin = 3e-5;
 let Iout = 2e-5;
 # 该区域的拥有抗体的健康人的迁入/迁出速率
-let Cin = 3e-5;
+let Cin = 3;
 let Cout = 2e-5;
 
 # 下面的几个参数表示传染病的状态的转换效率

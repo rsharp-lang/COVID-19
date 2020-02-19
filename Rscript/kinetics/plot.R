@@ -5,7 +5,7 @@ setwd(!script$dir);
 # 绘制传染病动力学模型计算结果
 
 let result <- read.csv(file = "./Kinetics_of_SARS-CoV-2_virus_infection_in_humans.csv");
-let time <- result[, 1] :> as.numeric;
+let time <- result[, "time"] :> as.numeric;
 let kinetics as double; 
 let names <- list(
     C = ["skyblue", "peoples of cured"],
