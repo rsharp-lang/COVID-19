@@ -9,8 +9,13 @@ Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
         Me.modelScript = modelScript
     End Sub
 
+    ''' <summary>
+    ''' 创建一个行政区域的动力学模型对象实例
+    ''' </summary>
+    ''' <param name="y0"></param>
+    ''' <returns></returns>
     Public Function CreateInstance(y0 As InitialStatus)
-        Dim engine As New RInterpreter
+        Dim engine As New RInterpreter With {.debug = True}
 
         Call engine.Evaluate(modelScript)
         Call engine.Add("y0", engine.Evaluate($"list(
