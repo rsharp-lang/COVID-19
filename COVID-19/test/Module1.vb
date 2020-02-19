@@ -1,4 +1,5 @@
 ﻿Imports COVID_19
+Imports SMRUCC.Rsharp.Runtime
 
 Module Module1
 
@@ -7,8 +8,12 @@ Module Module1
 
     Sub Main()
         Dim simulator As New Kinetics_of_SARS_CoV_2_virus_infection_in_humans(modelFile.ReadAllText, config)
-        Dim handle1 = simulator.CreateInstance(New InitialStatus)
-        Dim handle2 = simulator.CreateInstance(New InitialStatus With {.S = 100, .T = 20000})
+        Dim handle1 = simulator.CreateInstance(New InitialStatus, Sub(env As Environment)
+
+                                                                  End Sub)
+        Dim handle2 = simulator.CreateInstance(New InitialStatus With {.S = 100, .T = 20000}, Sub(env As Environment)
+
+                                                                                              End Sub)
 
         Pause()
     End Sub

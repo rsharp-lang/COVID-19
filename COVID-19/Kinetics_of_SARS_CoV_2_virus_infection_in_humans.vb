@@ -21,13 +21,9 @@ Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
     ''' </summary>
     ''' <param name="y0"></param>
     ''' <returns></returns>
-    Public Function CreateInstance(y0 As InitialStatus) As SolverIterator
+    Public Function CreateInstance(y0 As InitialStatus, handle As Action(Of Environment)) As SolverIterator
         Dim config As Options = If(Me.config.FileExists, New Options(Me.config), Nothing)
         Dim engine As New RInterpreter(config) With {.debug = True}
-        Dim handle As Action(Of Environment) =
-            Sub(env As Environment)
-
-            End Sub
 
         Call engine.Evaluate(modelScript)
         Call engine.Add("y0", engine.Evaluate($"list(

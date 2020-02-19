@@ -132,6 +132,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GCModeller\src\R-sharp\R#\R.vbproj">
+      <Project>{0C2EB77C-39F2-460D-A3F8-CE905F867637}</Project>
+      <Name>R</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\GCModeller\src\runtime\sciBASIC#\Data_science\Mathematica\Math\ODE\ODEsSolver.vbproj">
       <Project>{14E0B048-3A0D-4FD6-AA79-9B815D6F1B30}</Project>
       <Name>ODEsSolver</Name>
