@@ -22,7 +22,7 @@ let plot.kinetics_var as function(var) {
         x.lab = "time(day)",
         y.lab = "number of peoples"
     )
-    :> save.graphics(file = `./viz/${var}.png`);
+    :> save.graphics(file = `../viz/${var}.png`);
 }
 
 for(var in ["C", "T", "S", "I", "D"]) {
