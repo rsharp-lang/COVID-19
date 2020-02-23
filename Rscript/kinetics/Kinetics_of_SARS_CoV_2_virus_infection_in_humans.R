@@ -123,5 +123,6 @@ let Kinetics_of_SARS_CoV_2_virus_infection_in_humans = [
           - Icure * I              # 被治愈的病人
           - delta * I,             # 死亡的病人  
      
-     D -> delta * I                # 死亡的病人，delta可以近似看作为病死率    
+     D -> delta * I ,               # 死亡的病人，delta可以近似看作为病死率    
+	 E -> 1
 ];
