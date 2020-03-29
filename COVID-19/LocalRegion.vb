@@ -2,10 +2,6 @@
 Imports Microsoft.VisualBasic.MachineLearning.CellularAutomaton
 Imports randf = Microsoft.VisualBasic.Math.RandomExtensions
 
-Public Class LocalRegion
-
-End Class
-
 Public Enum Status
     ''' <summary>
     ''' 健康易感人群
@@ -27,26 +23,26 @@ End Enum
 
 Public Class People : Implements Individual
 
-    Dim status As Status
+    Dim status As Status = Status.Susceptible
 
     ''' <summary>
     ''' [0,1]之间的传染性
     ''' </summary>
-    Dim infectivity As Double
+    Dim infectivity As Double = 0.8
     Dim countTick As i32 = Scan0
 
     ''' <summary>
     ''' 从潜伏期到患病状态所需要的步数
     ''' </summary>
-    Dim pathopoiesis As Integer
+    Dim pathopoiesis As Integer = 10
     ''' <summary>
     ''' 自愈所需要的步数
     ''' </summary>
-    Dim selfCure As Integer
+    Dim selfCure As Integer = 30
     ''' <summary>
     ''' 从痊愈具有抗体抗性到转换为易感人群所需要的步数
     ''' </summary>
-    Dim lapse As Integer
+    Dim lapse As Integer = 20
 
     Public Sub Tick(adjacents As IEnumerable(Of CellEntity(Of Individual))) Implements Individual.Tick
         If status = Status.Susceptible Then
@@ -91,5 +87,13 @@ Public Class People : Implements Individual
         End If
 
         Return False
+    End Function
+
+    Public Sub SetStatus(status As Status)
+        Me.status = status
+    End Sub
+
+    Public Overrides Function ToString() As String
+        Return $"{status.ToString} ... {countTick}"
     End Function
 End Class
