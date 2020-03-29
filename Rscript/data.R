@@ -21,6 +21,8 @@ print(nrow(raw));
 
 let province = raw 
 :> as.list(byrow = TRUE) 
+# removes data outside China
+:> which(r -> r$countryEnglishName == "China")
 :> groupBy(prov -> prov$provinceEnglishName);
 
 print("raw data contains of province data:");
