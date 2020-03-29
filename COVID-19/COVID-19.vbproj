@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChinaMap.vb" />
+    <Compile Include="LocalRegion.vb" />
     <Compile Include="Kinetics_of_SARS_CoV_2_virus_infection_in_humans.vb" />
     <Compile Include="MigrationPattern.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -161,6 +162,10 @@
     <ProjectReference Include="..\..\GCModeller\src\runtime\sciBASIC#\Data_science\Graph\GraphTheory.vbproj">
       <Project>{203bc68f-a0cd-443a-ab62-4af4110f752f}</Project>
       <Name>GraphTheory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GCModeller\src\runtime\sciBASIC#\Data_science\MachineLearning\CellularAutomaton\CellularAutomaton.vbproj">
+      <Project>{783A4C29-CA1E-4D94-8C1E-451803731B7E}</Project>
+      <Name>CellularAutomaton</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\GCModeller\src\runtime\sciBASIC#\Data_science\Mathematica\Math\ODE\ODEsSolver.vbproj">
       <Project>{14E0B048-3A0D-4FD6-AA79-9B815D6F1B30}</Project>
