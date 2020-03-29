@@ -39,7 +39,7 @@ Public Class MigrationPattern
             .Select(Function(u)
                         Return New NamedValue(Of Double) With {
                             .Name = getPoint(u).label,
-                            .Value = u.data.weight
+                            .Value = u.weight
                         }
                     End Function) _
             .ToArray
