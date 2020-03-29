@@ -4172,8 +4172,8 @@ Global
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.sciBASIC.NET-test-release|x86.Build.0 = Release|Any CPU
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = Release|Any CPU
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = Release|Any CPU
-		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Release|x64
-		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x64.Build.0 = Release|x64
+		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x86.ActiveCfg = Release|Any CPU
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.Surveillance-of-infectious-diseases|x86.Build.0 = Release|Any CPU
 		{50DC905D-3BB5-4AFC-AF28-CC1A991EDF9B}.test|Any CPU.ActiveCfg = Release|Any CPU
@@ -4316,8 +4316,8 @@ Global
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.sciBASIC.NET-test-release|x86.Build.0 = BioDeep_database|x86
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = BioDeep_database|Any CPU
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = BioDeep_database|Any CPU
-		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x64.ActiveCfg = BioDeep_database|x64
-		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x64.Build.0 = BioDeep_database|x64
+		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x86.ActiveCfg = BioDeep_database|x86
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.Surveillance-of-infectious-diseases|x86.Build.0 = BioDeep_database|x86
 		{3291389C-EA87-4B33-A9A5-65A2D60BA3E2}.test|Any CPU.ActiveCfg = BioDeep_database|Any CPU
@@ -4604,8 +4604,8 @@ Global
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.sciBASIC.NET-test-release|x86.Build.0 = BioDeep_database|x86
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = BioDeep_database|Any CPU
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = BioDeep_database|Any CPU
-		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x64.ActiveCfg = BioDeep_database|x64
-		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x64.Build.0 = BioDeep_database|x64
+		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x86.ActiveCfg = BioDeep_database|x86
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.Surveillance-of-infectious-diseases|x86.Build.0 = BioDeep_database|x86
 		{45B726AC-D3B8-476D-89EA-1FF7243A4FA5}.test|Any CPU.ActiveCfg = BioDeep_database|Any CPU
@@ -4748,8 +4748,8 @@ Global
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.sciBASIC.NET-test-release|x86.Build.0 = BioDeep_database|Any CPU
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = BioDeep_database|Any CPU
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = BioDeep_database|Any CPU
-		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x64.ActiveCfg = BioDeep_database|x64
-		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x64.Build.0 = BioDeep_database|x64
+		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x86.ActiveCfg = BioDeep_database|Any CPU
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.Surveillance-of-infectious-diseases|x86.Build.0 = BioDeep_database|Any CPU
 		{1579D1A8-73C4-4F97-BB57-3D1E62343599}.test|Any CPU.ActiveCfg = BioDeep_database|Any CPU
@@ -4892,8 +4892,8 @@ Global
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.sciBASIC.NET-test-release|x86.Build.0 = BioDeep_database|Any CPU
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = BioDeep_database|Any CPU
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = BioDeep_database|Any CPU
-		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x64.ActiveCfg = BioDeep_database|x64
-		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x64.Build.0 = BioDeep_database|x64
+		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x86.ActiveCfg = BioDeep_database|Any CPU
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.Surveillance-of-infectious-diseases|x86.Build.0 = BioDeep_database|Any CPU
 		{78CB32E6-2904-41E7-ACCA-F1E2757BFA8E}.test|Any CPU.ActiveCfg = BioDeep_database|Any CPU
@@ -5036,8 +5036,8 @@ Global
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.sciBASIC.NET-test-release|x86.Build.0 = Rsharp_app_release|x86
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = Rsharp_app_release|Any CPU
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = Rsharp_app_release|Any CPU
-		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Rsharp_app_release|x64
-		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x64.Build.0 = Rsharp_app_release|x64
+		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x86.ActiveCfg = Rsharp_app_release|x86
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.Surveillance-of-infectious-diseases|x86.Build.0 = Rsharp_app_release|x86
 		{A43EC013-2B55-4D25-B9F1-96BD5FB1E577}.test|Any CPU.ActiveCfg = Rsharp_app_release|Any CPU
