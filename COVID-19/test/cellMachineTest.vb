@@ -15,10 +15,13 @@ Module cellMachineTest
 
         Dim snapshots As Dictionary(Of String, List(Of Integer)) = CreateCountSnapshotBuckets(Of Status)()
 
-        For i As Integer = 0 To 1000
-            Call local.Run()
-            Call local.TakeSnapshots(Function(p) p.type.ToString, snapshots)
-        Next
+        Using debugger As New Debugger(Of People)("X:\test.cdf", local, Function(a) CInt(a.type))
+            For i As Integer = 0 To 1000
+                Call local.Run()
+                Call local.TakeSnapshots(Function(p) p.type.ToString, snapshots)
+                Call debugger.TakeSnapshots()
+            Next
+        End Using
 
         Dim data = snapshots.CreateSnapshotMatrix(Of DataSet)
 
