@@ -16,6 +16,14 @@ Public Enum Status
     ''' </summary>
     Infective
     ''' <summary>
+    ''' 重症的
+    ''' </summary>
+    Advanced
+    ''' <summary>
+    ''' 死亡的
+    ''' </summary>
+    Dead
+    ''' <summary>
     ''' 治愈的
     ''' </summary>
     Removed
@@ -35,6 +43,8 @@ Public Class People : Implements Individual
     ''' 从潜伏期到患病状态所需要的步数
     ''' </summary>
     Dim pathopoiesis As Integer = 10
+    Dim ICU As Integer = 20
+    Dim death As Integer = 40
     ''' <summary>
     ''' 自愈所需要的步数
     ''' </summary>
@@ -66,24 +76,43 @@ Public Class People : Implements Individual
                 If randf.seeds.NextDouble < (countTick / pathopoiesis) Then
                     status = Status.Infective
                     countTick = Scan0
+                ElseIf randf.seeds.NextDouble < ((pathopoiesis - countTick) / pathopoiesis) Then
+                    ' 有一定几率转换为自愈状态
+                    status = Status.Removed
+                    countTick = Scan0
                 End If
             End If
         ElseIf status = Status.Infective Then
+            ' 可能变为重症，也可能变为自愈
             If ++countTick >= selfCure Then
                 status = Status.Removed
+                countTick = Scan0
+            ElseIf randf.seeds.NextDouble < ((countTick / ICU) / 2) Then
+                status = Status.Advanced
+                countTick = Scan0
+            End If
+        ElseIf status = Status.Advanced Then
+            ' 可能死亡，也可能自愈
+            If ++countTick >= selfCure Then
+                status = Status.Removed
+                countTick = Scan0
+            ElseIf randf.seeds.NextDouble < ((countTick / death) / 2) Then
+                status = Status.Dead
                 countTick = Scan0
             End If
         ElseIf status = Status.Removed Then
             If ++countTick >= lapse Then
                 status = Status.Susceptible
             End If
+        ElseIf status = Status.Dead Then
+            ' 已死亡，无任何动作
         Else
             Throw New InvalidProgramException(status.ToString)
         End If
     End Sub
 
     Private Function infectionDynamics(people As People) As Boolean
-        If people.status = Status.Enfective OrElse people.status = Status.Infective Then
+        If people.status = Status.Enfective OrElse people.status = Status.Infective OrElse people.status = Status.Advanced Then
             ' 有一定概率感染健康人
             If randf.seeds.NextDouble <= infectivity Then
                 Return True
