@@ -13,30 +13,14 @@ Module cellMachineTest
             people.data.SetStatus(Status.Enfective)
         Next
 
-        Dim snapshots As New Dictionary(Of String, List(Of Integer))
-
-        For Each statuKey In Enums(Of Status)()
-            snapshots.Add(statuKey.ToString, New List(Of Integer))
-        Next
+        Dim snapshots As Dictionary(Of String, List(Of Integer)) = CreateCountSnapshotBuckets(Of Status)()
 
         For i As Integer = 0 To 1000
             Call local.Run()
             Call local.TakeSnapshots(Function(p) p.type.ToString, snapshots)
         Next
 
-        Dim data = snapshots.Values _
-            .First _
-            .Select(Function(null, i)
-                        Return New DataSet With {
-                            .ID = i,
-                            .Properties = snapshots _
-                                .ToDictionary(Function(d) d.Key,
-                                              Function(d)
-                                                  Return CDbl(d.Value(i))
-                                              End Function)
-                        }
-                    End Function) _
-            .ToArray
+        Dim data = snapshots.CreateSnapshotMatrix(Of DataSet)
 
         Call data.SaveTo("X:/ddd.csv")
 
