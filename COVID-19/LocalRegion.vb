@@ -44,6 +44,12 @@ Public Class People : Implements Individual
     ''' </summary>
     Dim lapse As Integer = 20
 
+    Public ReadOnly Property type As Status
+        Get
+            Return status
+        End Get
+    End Property
+
     Public Sub Tick(adjacents As IEnumerable(Of Individual)) Implements Individual.Tick
         If status = Status.Susceptible Then
             If adjacents.Any(AddressOf infectionDynamics) Then
