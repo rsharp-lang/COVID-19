@@ -21,7 +21,7 @@ Module cellMachineTest
 
         For i As Integer = 0 To 1000
             Call local.Run()
-            Call local.TakeSnapshots(Function(p) p.type, snapshots)
+            Call local.TakeSnapshots(Function(p) p.type.ToString, snapshots)
         Next
 
         Dim data = snapshots.Values _
