@@ -44,7 +44,7 @@ Public Class People : Implements Individual
     ''' </summary>
     Dim lapse As Integer = 20
 
-    Public Sub Tick(adjacents As IEnumerable(Of CellEntity(Of Individual))) Implements Individual.Tick
+    Public Sub Tick(adjacents As IEnumerable(Of Individual)) Implements Individual.Tick
         If status = Status.Susceptible Then
             If adjacents.Any(AddressOf infectionDynamics) Then
                 status = Status.Enfective
@@ -76,9 +76,7 @@ Public Class People : Implements Individual
         End If
     End Sub
 
-    Private Function infectionDynamics(c As CellEntity(Of Individual)) As Boolean
-        Dim people = DirectCast(DirectCast(c, Object), CellEntity(Of People)).data
-
+    Private Function infectionDynamics(people As People) As Boolean
         If people.status = Status.Enfective OrElse people.status = Status.Infective Then
             ' 有一定概率感染健康人
             If randf.seeds.NextDouble <= infectivity Then
