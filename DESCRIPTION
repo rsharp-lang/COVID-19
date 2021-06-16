@@ -1,10 +1,10 @@
-Package: Rserver
+Package: COVID19
 Type: Package
-Title: R# web http server
+Title: COVID19 infectious model
 Version: 0.1.0
 Author: xieguigang
 Maintainer: xieguigang <xie.guigang@gcmodeller.org>
-Description: R# web http server
+Description: An infectious disease kinetics model of SARS-CoV-2 virus infection in humans with population migrating details for predicts the plague progress in a administrative divislon.
 License: MIT
 Encoding: UTF-8
 LazyData: true

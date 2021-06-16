@@ -5,19 +5,29 @@
 
 require(dataframe);
 
-setwd(!script$dir);
-cat("\n");
+#' Get raw data
+#' 
+#' @description https://github.com/BlankerL/DXY-COVID-19-Data/blob/master/csv/DXYArea.csv
+#' 
+const getDXYAreaRawData as function() {
+    const filepath as string = system.file("data/DXYArea.csv", package = "COVID19");
+    const raw = read.csv(filepath, encoding = "utf8");
+
+    print("Peeks of the raw data table:");
+    print("All of the data fields:");
+    print(colnames(raw));
+    cat("\n");
+    print("Number of data records:");
+    print(nrow(raw));
+
+    raw;
+}
 
 let raw = read.csv("../data/DXYArea.csv", encoding = "utf8");
 
 raw[, "updateTime"] <- as.Date(raw[, "updateTime"]);
 
-print("Peeks of the raw data table:");
-print("All of the data fields:");
-print(colnames(raw));
-cat("\n");
-print("Number of data records:");
-print(nrow(raw));
+
 
 let province = raw 
 :> as.list(byrow = TRUE) 
