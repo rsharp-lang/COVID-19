@@ -99,55 +99,6 @@ const province.data as function(prov.group, name) {
     prov;
 }
 
-let result <- lapply(province, prov -> province.data(prov$group, prov$key));
-let dateKey as function(d) {
+const dateKey as function(d) {
     `${d$Year}-${d$Month}-${d$Day}`;
-}
-
-names(result) <- sapply(province, prov -> prov$key);
-# str(result);
-
-# write formatted csv table file
-using file as open.csv("../data/DXYArea_simple.csv", encoding = "utf8") {
-    let proviNames = names(result);
-    let row = dataframe::row("");
-    let sub = dataframe::row("date");
-    let yesterday = list();
-
-    for(name in proviNames) {
-        row :> append.cells(["", name, ""]);
-        sub :> append.cells(["confirmed", "cured", "dead"]);
-
-        yesterday[[name]] <- ["0", "0", "0"];
-    }
-
-    file :> append.row(row);
-    file :> append.row(sub);
-
-    let proviData;
-    let dayData;
-
-    for (day in dates) {
-        day <- dateKey(day :> as.object);
-        row <- dataframe::row(day);
-
-        for(name in proviNames) {
-            proviData <- result[[name]];
-            dayData <- proviData[[day]];
-
-            if (is.empty(dayData)) {
-                row :> append.cells(yesterday[[name]]);
-            } else {
-                yesterday[[name]] <- [
-                    dayData$province_confirmedCount, 
-                    dayData$province_curedCount, 
-                    dayData$province_deadCount
-                ];
-
-                row :> append.cells(yesterday[[name]]);
-            }
-        }
-
-        file :> append.row(row);
-    }
 }
