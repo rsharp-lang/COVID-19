@@ -111,7 +111,7 @@
     <Compile Include="AdministrativeDivislon\Status.vb" />
     <Compile Include="AdministrativeDivislon\MigrationRatio.vb" />
     <Compile Include="ChinaMap.vb" />
-    <Compile Include="AdministrativeDivislon\LocalRegion.vb" />
+    <Compile Include="AdministrativeDivislon\People.vb" />
     <Compile Include="Kinetics_of_SARS_CoV_2_virus_infection_in_humans.vb" />
     <Compile Include="AdministrativeDivislon\MigrationPattern.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
