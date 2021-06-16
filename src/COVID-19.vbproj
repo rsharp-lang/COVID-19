@@ -108,6 +108,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrativeDivislon\Status.vb" />
     <Compile Include="AdministrativeDivislon\MigrationRatio.vb" />
     <Compile Include="ChinaMap.vb" />
     <Compile Include="AdministrativeDivislon\LocalRegion.vb" />

@@ -2,36 +2,9 @@
 Imports Microsoft.VisualBasic.MachineLearning.CellularAutomaton
 Imports randf = Microsoft.VisualBasic.Math.RandomExtensions
 
-Public Enum Status
-    ''' <summary>
-    ''' 健康易感人群
-    ''' </summary>
-    Susceptible
-    ''' <summary>
-    ''' 潜伏期的
-    ''' </summary>
-    Enfective
-    ''' <summary>
-    ''' 受感染的
-    ''' </summary>
-    Infective
-    ''' <summary>
-    ''' 重症的
-    ''' </summary>
-    Advanced
-    ''' <summary>
-    ''' 死亡的
-    ''' </summary>
-    Dead
-    ''' <summary>
-    ''' 治愈的
-    ''' </summary>
-    Removed
-End Enum
-
 Public Class People : Implements Individual
 
-    Dim status As Status = Status.Susceptible
+    Dim status As Status = status.Susceptible
 
     ''' <summary>
     ''' [0,1]之间的传染性
@@ -61,50 +34,50 @@ Public Class People : Implements Individual
     End Property
 
     Public Sub Tick(adjacents As IEnumerable(Of Individual)) Implements Individual.Tick
-        If status = Status.Susceptible Then
+        If status = status.Susceptible Then
             If adjacents.Any(AddressOf infectionDynamics) Then
-                status = Status.Enfective
+                status = status.Enfective
                 countTick = 0
             End If
-        ElseIf status = Status.Enfective Then
+        ElseIf status = status.Enfective Then
             If ++countTick >= pathopoiesis Then
                 ' 必须转变为致病状态
-                status = Status.Infective
+                status = status.Infective
                 countTick = Scan0
             Else
                 ' 有一定几率转换为致病状态
                 If randf.seeds.NextDouble < (countTick / pathopoiesis) Then
-                    status = Status.Infective
+                    status = status.Infective
                     countTick = Scan0
                 ElseIf randf.seeds.NextDouble < ((pathopoiesis - countTick) / pathopoiesis) Then
                     ' 有一定几率转换为自愈状态
-                    status = Status.Removed
+                    status = status.Removed
                     countTick = Scan0
                 End If
             End If
-        ElseIf status = Status.Infective Then
+        ElseIf status = status.Infective Then
             ' 可能变为重症，也可能变为自愈
             If ++countTick >= selfCure Then
-                status = Status.Removed
+                status = status.Removed
                 countTick = Scan0
             ElseIf randf.seeds.NextDouble < ((countTick / ICU) / 2) Then
-                status = Status.Advanced
+                status = status.Advanced
                 countTick = Scan0
             End If
-        ElseIf status = Status.Advanced Then
+        ElseIf status = status.Advanced Then
             ' 可能死亡，也可能自愈
             If ++countTick >= selfCure Then
-                status = Status.Removed
+                status = status.Removed
                 countTick = Scan0
             ElseIf randf.seeds.NextDouble < ((countTick / death) / 2) Then
-                status = Status.Dead
+                status = status.Dead
                 countTick = Scan0
             End If
-        ElseIf status = Status.Removed Then
+        ElseIf status = status.Removed Then
             If ++countTick >= lapse Then
-                status = Status.Susceptible
+                status = status.Susceptible
             End If
-        ElseIf status = Status.Dead Then
+        ElseIf status = status.Dead Then
             ' 已死亡，无任何动作
         Else
             Throw New InvalidProgramException(status.ToString)
@@ -112,7 +85,7 @@ Public Class People : Implements Individual
     End Sub
 
     Private Function infectionDynamics(people As People) As Boolean
-        If people.status = Status.Enfective OrElse people.status = Status.Infective OrElse people.status = Status.Advanced Then
+        If people.status = status.Enfective OrElse people.status = status.Infective OrElse people.status = status.Advanced Then
             ' 有一定概率感染健康人
             If randf.seeds.NextDouble <= infectivity Then
                 Return True
