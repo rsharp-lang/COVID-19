@@ -1,0 +1,11 @@
+Package: Rserver
+Type: Package
+Title: R# web http server
+Version: 0.1.0
+Author: xieguigang
+Maintainer: xieguigang <xie.guigang@gcmodeller.org>
+Description: R# web http server
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
