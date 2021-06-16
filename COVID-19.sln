@@ -4006,8 +4006,8 @@ Global
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.sciBASIC.NET-test-release|x86.Build.0 = Release|Any CPU
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|Any CPU.ActiveCfg = Release|Any CPU
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|Any CPU.Build.0 = Release|Any CPU
-		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Release|Any CPU
-		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x64.Build.0 = Release|Any CPU
+		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x64.ActiveCfg = Surveillance-of-infectious-diseases|x64
+		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x64.Build.0 = Surveillance-of-infectious-diseases|x64
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x86.ActiveCfg = Release|Any CPU
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.Surveillance-of-infectious-diseases|x86.Build.0 = Release|Any CPU
 		{783A4C29-CA1E-4D94-8C1E-451803731B7E}.test|Any CPU.ActiveCfg = Release|Any CPU
