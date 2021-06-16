@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.Math.Calculus.Dynamics
+Imports SMRUCC.Rsharp.Development.Configuration
 Imports SMRUCC.Rsharp.Interpreter
 Imports SMRUCC.Rsharp.Runtime
-Imports SMRUCC.Rsharp.System.Configuration
 
 Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
 
@@ -22,7 +22,7 @@ Public Class Kinetics_of_SARS_CoV_2_virus_infection_in_humans
     ''' <param name="y0"></param>
     ''' <returns></returns>
     Public Function CreateInstance(y0 As InitialStatus, handle As Action(Of Environment)) As SolverIterator
-        Dim config As Options = If(Me.config.FileExists, New Options(Me.config), Nothing)
+        Dim config As Options = If(Me.config.FileExists, New Options(Me.config, saveConfig:=False), Nothing)
         Dim engine As New RInterpreter(config) With {.debug = True}
 
         Call engine.Evaluate(modelScript)
